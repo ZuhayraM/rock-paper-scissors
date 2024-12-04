@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="header">Rock Paper Scissors!</h1>
+    <p id="game-show">
+        <span id="cpu"></span>
+        <span id="vs" style="display: none;">vs</span>
+        <span id="user"></span>
+        <p id="results"></p>
+        <button id="show-modal" style="display: none;">Play again</button>
+    </p>
+
+    <div id="myModal" class="modal">
+        <div id="modal-content">
+          <span class="close">&times;</span>
+        <form action="#">
+          <h2 id="questions"></h2>
+          <input type="text" id="user-name" placeholder="Your first name">
+          <input type="text" id="move" style="display: none;" placeholder="i.e. rock, paper, scissors">
+          <button type="submit" id="check-name-btn">Say hi</button>
+          <button type="submit" id="play-btn" style="display: none;">Let's go!</button>
+        </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="johnnyJS.js"></script>
+</body>
+</html>
