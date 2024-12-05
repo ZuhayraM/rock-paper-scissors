@@ -3,7 +3,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 const options = ["rock", "paper", "scissors"];
 let modalQ = document.getElementById("questions");
-var cpu = document.getElementById("cpu");
+const cpu = document.getElementById("cpu");
 var user = document.getElementById("user");
 var result = document.getElementById("results")
 const userName = document.getElementById("user-name");
@@ -36,28 +36,34 @@ if (userName.value > 10) {
 };
 
 
-// const playerWin = (userMove, cpu) => {
-function playerWin(user, cpu) {
-    return (
-        (user === "rock" && cpu === "scissors") || 
-        (user === "scissors" && cpu === "paper") || 
-        (user === "paper" && cpu === "rock")
-    );
-}
-
 playMoveBtn.onclick = () => {
     modal.style.display = "none";
     user.innerText = "your " + userMove.value;
     cpu.innerText = "Computer's " + options[Math.floor(Math.random() * options.length)];
     document.getElementById("vs").style.display = "inline-block";
     document.getElementById("show-modal").style.display = "block";
-    if (playerWin(user, cpu)) {
-            result.innerText = "You win!";
-      } else if (cpu === user) {
-            result.innerText = "It was a draw...";
-      } else {
-            result.innerText = "Computer wins.";
-      }
+    // if ((cpu + 1) % options.length === user) {
+    //         result.innerText = "You win!";
+    //   } else if (cpu === user) {
+    //         result.innerText = "It was a draw...";
+    //   } else {
+    //         result.innerText = "Computer wins.";
+    //   }
+    if (cpu === "rock" && user === "scissors") {
+        result.innerText = "Computer wins.";
+    } else if (cpu === "paper" && user === "rock") {
+        result.innerText = "Computer wins.";
+    } else if (cpu === "scissors" && user === "paper") {
+        result.innerText = "Computer wins.";
+    } else if (cpu === "scissors" && user === "rock") {
+        result.innerText = "You win!";
+    } else if (cpu === "rock" && user === "paper") {
+        result.innerText = "You win!";
+    } else if (cpu === "paper" && user === "scissors") {
+        result.innerText = "You win!";
+    } else {
+        result.innerText = "It was a draw...";
+    }
 };
 
 
