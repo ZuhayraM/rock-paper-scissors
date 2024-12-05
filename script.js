@@ -9,7 +9,6 @@ var result = document.getElementById("results")
 const userName = document.getElementById("user-name");
 const userNameVal = userName.value;
 const userMove = document.getElementById("move");
-// userMove.value.toLowerCase();
 const checkNameBtn = document.getElementById("check-name-btn");
 const playMoveBtn = document.getElementById("play-btn");
 
@@ -38,35 +37,19 @@ if (userName.value > 10) {
 
 playMoveBtn.onclick = () => {
     modal.style.display = "none";
-    user.innerText = "your " + userMove.value;
+    user.innerText = "your " + userMove.value.toLowerCase();
     cpu.innerText = "Computer's " + options[Math.floor(Math.random() * options.length)];
     document.getElementById("vs").style.display = "inline-block";
     document.getElementById("show-modal").style.display = "block";
-    // if ((cpu + 1) % options.length === user) {
-    //         result.innerText = "You win!";
-    //   } else if (cpu === user) {
-    //         result.innerText = "It was a draw...";
-    //   } else {
-    //         result.innerText = "Computer wins.";
-    //   }
-    if (cpu === "rock" && user === "scissors") {
-        result.innerText = "Computer wins.";
-    } else if (cpu === "paper" && user === "rock") {
-        result.innerText = "Computer wins.";
-    } else if (cpu === "scissors" && user === "paper") {
-        result.innerText = "Computer wins.";
-    } else if (cpu === "scissors" && user === "rock") {
-        result.innerText = "You win!";
-    } else if (cpu === "rock" && user === "paper") {
-        result.innerText = "You win!";
-    } else if (cpu === "paper" && user === "scissors") {
-        result.innerText = "You win!";
-    } else {
-        result.innerText = "It was a draw...";
-    }
-};
 
-
+    if ((cpu + 1) % options.length === user) {
+            result.innerText = "You win!";
+      } else if (cpu === user) {
+            result.innerText = "It was a draw...";
+      } else {
+            result.innerText = "Computer wins.";
+      }
+    };
 
 document.getElementById("show-modal").onclick = () => {
     modal.style.display = "block";
