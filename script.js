@@ -35,27 +35,40 @@ if (userName.value > 10) {
 };
 
 
+const determineWinner = (user, cpu) => {
+    if (options[(user + 1)] === cpu) {
+        result.innerText = "Computer wins.";
+  } else if (cpu === options[0] && user === options[2]) {
+    result.innerText = "Computer wins.";
+    } else if (user === cpu) {
+      result.innerText = "It was a draw...";
+    } else if (cpu === options[2] && user === options[0]) {
+        result.innerText = "You win!";
+    } else if ((options[(user - 1)] === cpu)){
+        result.innerText = "You win!";
+    } else{
+        result.innerText = "ERROR";
+    }
+};
+
+
 playMoveBtn.onclick = () => {
     modal.style.display = "none";
     user.innerText = "your " + userMove.value.toLowerCase();
     cpu.innerText = "Computer's " + options[Math.floor(Math.random() * options.length)];
     document.getElementById("vs").style.display = "inline-block";
     document.getElementById("show-modal").style.display = "block";
-
-    if ((cpu + 1) % options.length === user) {
-            result.innerText = "You win!";
-      } else if (cpu === user) {
-            result.innerText = "It was a draw...";
-      } else {
-            result.innerText = "Computer wins.";
-      }
-    };
-
-document.getElementById("show-modal").onclick = () => {
-    modal.style.display = "block";
-    userMove.value = "";
+    determineWinner(user, cpu);
 };
 
-span.onclick = function() {
+    document.getElementById("show-modal").onclick = () => {
+    modal.style.display = "block";
+    userMove.value = "";
+    document.getElementById("show-modal").style.display = "none";
+};
+
+span.onclick = () => {
     modal.style.display = "none";
-}
+    document.getElementById("show-modal").style.display = "block";
+    document.getElementById("show-modal").innerText = "Show modal";
+};
