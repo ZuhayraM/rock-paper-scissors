@@ -11,6 +11,8 @@ const userNameVal = userName.value;
 const userMove = document.getElementById("move");
 const checkNameBtn = document.getElementById("check-name-btn");
 const playMoveBtn = document.getElementById("play-btn");
+const lineBr = document.getElementById("line-break");
+// console.log(lineBr);
 
 window.onload = () => {
     modal.style.display = "block";
@@ -34,21 +36,34 @@ if (userName.value > 10) {
  }
 };
 
-
-const determineWinner = (user, cpu) => {
-    if (options[(user + 1)] === cpu) {
-        result.innerText = "Computer wins.";
-  } else if (cpu === options[0] && user === options[2]) {
-    result.innerText = "Computer wins.";
-    } else if (user === cpu) {
-      result.innerText = "It was a draw...";
-    } else if (cpu === options[2] && user === options[0]) {
-        result.innerText = "You win!";
-    } else if ((options[(user - 1)] === cpu)){
-        result.innerText = "You win!";
-    } else{
-        result.innerText = "ERROR";
+const determineWinner = () => {
+if (user === "rock") {
+    if (cpu === "paper") {
+        result.textContent = "Computer wins.";
+    } else if (cpu === "scissors") {
+        result.textContent = "Player wins!";
+    } else {
+        result.textContent = "It's a tie.";
     }
+} else if (user === "scissors") {
+    if (cpu === "rock") {
+        result.textContent = "Computer wins.";
+    } else if (cpu === "paper") {
+        result.textContent = "Player wins!";
+    } else {
+        result.textContent = "It's a tie.";
+    }
+} else if (user === "paper") {
+    if (cpu === "scissors") {
+        result.textContent = "Computer wins.";
+    } else if (cpu === "rock") {
+        result.textContent = "Player wins!";
+    } else {
+        result.textContent = "It's a tie.";
+    }
+} else {
+    result.textContent = "Oops. Something went wrong. Try refreshing the page or checking the console.";
+}
 };
 
 
