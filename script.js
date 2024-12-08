@@ -36,7 +36,7 @@ if (userName.value > 10) {
  }
 };
 
-const determineWinner = (user, cpu) => {
+const determineWinner = (user,cpu) => {
 if (user === "rock") {
     if (cpu === "paper") {
         result.textContent = "Computer wins.";
