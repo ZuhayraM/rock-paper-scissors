@@ -10,40 +10,46 @@ const userName = document.getElementById("user-name");
 const userMove = document.getElementById("move");
 const checkNameBtn = document.getElementById("check-name-btn");
 const playMoveBtn = document.getElementById("play-btn");
-
+const startGame = document.getElementById("show-modal");
+const lineBr = document.getElementById("line-break");
 
 window.onload = () => {
+    // startGame.onclick = () => {
     modal.style.display = "block";
     modalQ.innerText = "Hi there! What's your name?";
     userMove.value = "";
+    userName.value = "";
+// };
 };
 
 checkNameBtn.onclick = () => {
-    const name = userName.value.trim();    
-
+    const name = userName.value;    
     if (name.length === 0) {
-        alert("Name cannot be empty.");
+        modalQ.innerText = "Please enter your name!";
+        return;
     } else if (name.length > 10) {
-        alert("Name cannot be longer than 10 characters.");
-    } else if (/[^a-zA-Z]/.test(name)) {
-        alert("Enter a valid name (only letters allowed, no numbers or special characters).");
+        modalQ.innerText = "Your name can't be greater than 10 letters surely!";
+    } else if (/^[^_-]*$/gi.test(name)) {
+        modalQ.innerText = "Surely your name can't have any special characters or numbers!" ;
     } else {
-        modalQ.innerText = `Hi ${name}! Let's play!`;
+        modalQ.innerText = `Welcome ${name}! Let's play!`;
         setTimeout(() => {
             modalQ.innerText = "Enter your move.";
-            userName.style.display = "none"; 
+            // userName.style.display = "none"; 
+            userName.remove();
             userMove.style.display = "inline-block"; 
             userName.value = "";  
-            checkNameBtn.style.display = "none"; 
+            // checkNameBtn.style.display = "none"; 
+            checkNameBtn.remove();
             playMoveBtn.style.display = "inline-block";
         }, 2000); 
     }
+    lineBr.style.display = "none";
 };
 
 const determineWinner = async function(userMove, cpuMove, result) {
     return new Promise(resolve => {
         setTimeout(() => {
-            // Check if it's a tie
             if (userMove === cpuMove) {
                 result.textContent = "It's a tie.";
             } else {
@@ -53,7 +59,7 @@ const determineWinner = async function(userMove, cpuMove, result) {
                     "paper": "rock"
                 };
                 if (winConditions[userMove] === cpuMove) {
-                    result.textContent = "Player wins!";
+                    result.textContent = `You win!`;
                 } else {
                     result.textContent = "Computer wins.";
                 }
@@ -70,6 +76,7 @@ playMoveBtn.onclick = async () => {
 
    userText.innerText = "your " + userMoveValue;
    cpu.innerText = "Computer's " + cpuMoveValue;
+   startGame.innerHTML = "Play again";
 
    document.getElementById("vs").style.display = "inline-block";
    document.getElementById("show-modal").style.display = "block";
@@ -77,7 +84,7 @@ playMoveBtn.onclick = async () => {
    await determineWinner(userMoveValue, cpuMoveValue, result);
 };
 
-document.getElementById("show-modal").onclick = () => {
+startGame.onclick = () => {
     modal.style.display = "block";
     userMove.value = "";
     document.getElementById("show-modal").style.display = "none";

@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock paper scissors</title>
+    <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://www.shutterstock.com/image-illustration/abstract-3d-light-blue-fluid-600nw-2221189283.jpg">
 </head>
 <body>
-    <h1 id="header">Rock Paper Scissors!</h1>
+    <h1 id="header">Rock, Paper, Scissors!</h1>
     <p id="game-show">
         <span id="cpu"></span>
         <span id="vs" style="display: none;">vs</span>
         <span id="user"></span>
         <p id="results"></p>
-        <button id="show-modal" style="display: none;">Play again</button>
+        <button id="show-modal" class="button">Let's Play!</button>
     </p>
 
     <div id="myModal" class="modal">
         <div id="modal-content">
           <span class="close">&times;</span>
         <form action="#">
-          <h2 id="questions"></h2>
-          <input type="text" id="user-name" placeholder="Your first name">
+          <h1 id="questions"></h1>
+          <input type="text" id="user-name" placeholder="Must not exceed 10 characters and no numbers or special characters allowed.">
           <input type="text" id="move" style="display: none;" placeholder="i.e. rock, paper, scissors">
           <br><br>
-          <button type="submit" id="check-name-btn">Say hi</button>
+          <button type="submit" id="check-name-btn" class="button">Start Game</button>
           <br id="line-break">
-          <button type="submit" id="play-btn" style="display: none;">Let's go!</button>
+          <button type="submit" id="play-btn" style="display: none;" class="button">Play Move</button>
         </form>
         </div>
     </div>
