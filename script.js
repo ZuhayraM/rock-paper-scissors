@@ -13,26 +13,28 @@ const playMoveBtn = document.getElementById("play-btn");
 const startGame = document.getElementById("show-modal");
 const lineBr = document.getElementById("line-break");
 
-window.onload = () => {
+window.onload = function start() {
     // startGame.onclick = () => {
     modal.style.display = "block";
     modalQ.innerText = "Hi there! What's your name?";
     userMove.value = "";
     userName.value = "";
-// };
 };
+// };
 
 checkNameBtn.onclick = () => {
     const name = userName.value;    
     if (name.length === 0) {
         modalQ.innerText = "Please enter your name!";
-        return;
+        setTimeout(start(), 1000);
     } else if (name.length > 10) {
         modalQ.innerText = "Your name can't be greater than 10 letters surely!";
-    } else if (/^[^_-]*$/gi.test(name)) {
-        modalQ.innerText = "Surely your name can't have any special characters or numbers!" ;
+        setTimeout(start(), 1000);
+    } else if (/[^\w\s_-]+|\d+/gi.test(name)) {
+        modalQ.innerText = "Surely your name can't have any special characters or numbers!";
+        setTimeout(star(), 1000);
     } else {
-        modalQ.innerText = `Welcome ${name}! Let's play!`;
+        modalQ.innerText = `Hi ${name}! Let's play Rock, Paper, Scissors together!`;
         setTimeout(() => {
             modalQ.innerText = "Enter your move.";
             // userName.style.display = "none"; 
@@ -65,7 +67,7 @@ const determineWinner = async function(userMove, cpuMove, result) {
                 }
             }
             resolve();
-        }, 1000); 
+        }, 500); 
     });
 };
 

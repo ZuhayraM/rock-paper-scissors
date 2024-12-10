@@ -1,6 +1,7 @@
 body {
    text-align: center; 
    user-select: none;
+   background: linear-gradient(180deg, blue, green, yellow);
    background-image: url("https://img.freepik.com/premium-photo/dynamic-abstract-background-featuring-glowing-blue-neon-arrows-futuristic-engaging-visual-experience_1209323-6353.jpg");
    background-repeat: no-repeat;
    background-attachment: fixed;
@@ -22,11 +23,11 @@ body {
     background-color: rgba(0,0,0,0.4);
   }
   
-
   #modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
+    position: relative;
     /* border: 1px solid black; */
     box-shadow: 2px 2px 10px black;
     border-radius: 40px;
@@ -34,7 +35,22 @@ body {
     height: 50%;
     text-align: center;
     color: black;
-  }
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
   
   .close {
     color: #aaaaaa;
@@ -49,17 +65,21 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
   #header {
-    font-size: 300%;
+    font-size: 400%;
   }
+
   h1, p {
     font-family: Arial;
     text-align: center;
   }
+
   #questions {
     margin-top: 50px;
     font-size: 250%;
   }
+
   input {
     padding: 20px;
     font-family: Arial;
@@ -67,20 +87,27 @@ body {
     width: 70%;
     text-align: center;
   }
+
   .button {
     padding: 20px;
     width: 50%;
     font-size: larger;
-    border: 3px outset black;
+    border: 3px outset rgb(114, 114, 114);
     background-color: #e7e6e6;
     border-radius: 20px;
   }
+
   .button:hover {
     background-color: rgb(223, 223, 223);
   }
+
   .button:active {
-    border: 3px inset black;
+    border: 3px inset rgb(82, 82, 82);
   }
+
   #show-modal {
-  margin-left: 24vw;
+    margin-left: 24vw;
+  }
+  p {
+    font-size: 40px;
   }
