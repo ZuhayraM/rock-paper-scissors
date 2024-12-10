@@ -8,6 +8,7 @@
     <link rel="icon" href="https://www.shutterstock.com/image-illustration/abstract-3d-light-blue-fluid-600nw-2221189283.jpg">
 </head>
 <body>
+  <acronym title="Peekaboo!"><button id="htpBTN">How to play</button></acronym>
     <h1 id="header">Rock, Paper, Scissors!</h1>
     <p id="game-show">
         <span id="cpu"></span>
@@ -22,8 +23,8 @@
           <span class="close">&times;</span>
         <form action="#">
           <h1 id="questions"></h1>
-          <input type="text" id="user-name" placeholder="Must not exceed 10 characters and no numbers or special characters allowed.">
-          <input type="text" id="move" style="display: none;" placeholder="i.e. rock, paper, scissors" autocomplete="true">
+          <input type="text" id="user-name" placeholder="Must not exceed 10 characters and no numbers or special characters allowed." autocomplete="username">
+          <input type="text" id="move" style="display: none;" placeholder="i.e. rock, paper, scissors" autocomplete="on">
           <br><br>
           <button type="submit" id="check-name-btn" class="button">Start Game</button>
           <br id="line-break">
