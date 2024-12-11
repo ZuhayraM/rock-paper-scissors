@@ -12,6 +12,16 @@ const checkNameBtn = document.getElementById("check-name-btn");
 const playMoveBtn = document.getElementById("play-btn");
 const startGame = document.getElementById("show-modal");
 const lineBr = document.getElementById("line-break");
+const howToPlay = document.getElementById("htpBTN");
+const popup = document.getElementById("popup")
+
+howToPlay.addEventListener("click", () => {
+    if (popup.style.display === "none") {
+    popup.style.display = "inline-block";
+    } else {
+        popup.style.display = "none";
+    }
+});
 
 window.onload = function start() {
     // startGame.onclick = () => {
@@ -25,7 +35,7 @@ window.onload = function start() {
 checkNameBtn.onclick = () => {
     const name = userName.value;    
     if (name.length === 0) {
-        modalQ.innerText = "Please enter your name!";
+        modalQ.innerText = "Don't you have a name?";
         setTimeout(start(), 1000);
     } else if (name.length > 10) {
         modalQ.innerText = "Your name can't be greater than 10 letters surely!";

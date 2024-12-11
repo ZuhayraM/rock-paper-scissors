@@ -112,14 +112,16 @@ body {
     font-size: 40px;
   }
 
- .tooltip::after {
+ #popup {
       content: "";
+      display: none;
       position: absolute;
       width: 0;
       height: 0;
       border-width: 10px;
+      /* background-color: #ffffff; */
       border-style: solid;
-      border-color: transparent #FFFFFF transparent transparent;
-      top: 11px;
-      left: -24px;
+      border-color: transparent #ffffff transparent transparent;
+      /* top: 11px; */
+      /* left: -24px; */
  }
