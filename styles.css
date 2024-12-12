@@ -111,17 +111,3 @@ body {
   p {
     font-size: 40px;
   }
-
- #popup {
-      content: "";
-      display: none;
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-width: 10px;
-      /* background-color: #ffffff; */
-      border-style: solid;
-      border-color: transparent #ffffff transparent transparent;
-      /* top: 11px; */
-      /* left: -24px; */
- }

@@ -12,16 +12,6 @@ const checkNameBtn = document.getElementById("check-name-btn");
 const playMoveBtn = document.getElementById("play-btn");
 const startGame = document.getElementById("show-modal");
 const lineBr = document.getElementById("line-break");
-const howToPlay = document.getElementById("htpBTN");
-const popup = document.getElementById("popup")
-
-howToPlay.addEventListener("click", () => {
-    if (popup.style.display === "none") {
-    popup.style.display = "inline-block";
-    } else {
-        popup.style.display = "none";
-    }
-});
 
 window.onload = function start() {
     // startGame.onclick = () => {
